@@ -24,6 +24,12 @@ const newPost = [{
 }
 ]
 
+const updatedPost = {
+  id: 1,
+  userId: 1,
+  title: 'First Post',
+  body: 'Update this first post'
+};
 
  function App() {
   const [data, setData] = useState([]);
@@ -45,7 +51,26 @@ const sendPostRequest = async () => {
     console.log('PostData', data.data)
     
   } catch (error) {
+    console.log('AxiosError',error)
+  }
+}
+
+const sendPutRequest = async () => {
+  try {
+    const res = await axios.put('https://jsonplaceholder.typicode.com/posts/1', updatedPost);
+    console.log('Putdata', res.data)
+    
+  } catch (error) {
     console.log(error)
+  }
+}
+
+const sendDeleteRequest = async () => {
+  try {
+    const res = await axios.delete('https://jsonplaceholder.typicode.com/posts/1');
+    console.log('DeleteData', res);
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -53,6 +78,8 @@ const sendPostRequest = async () => {
 useEffect(() => {
   sendGetRequest();
   sendPostRequest();
+  sendPutRequest();
+  sendDeleteRequest();
 })
   return (
 
