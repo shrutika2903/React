@@ -1,7 +1,19 @@
 .App {
   text-align: center;
 }
+header {
+  height: 5.1875rem;
+}
 
+a.button.active {
+  border: 1px solid var(--fore-color);
+}
+.grid {
+  max-width: 120rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.6rem;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
